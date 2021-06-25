@@ -30,7 +30,11 @@ Route::get("/comics/create", "ComicController@create")->name("comics.create");
 //mostra i dettagli di un singolo comic
 Route::get("/comics/{comic}", "ComicController@show")->name("comics.show");
 
+//salva i dati dopo aver fatto le modifiche di un comics
+Route::put("/comics/{comic}", "ComicController@update")->name("comics.update");
 
+
+// Mostra il form per modificare un utente
 Route::get("/comics/{comic}/edit", "ComicController@edit")->name("comics.edit");
 
 

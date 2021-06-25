@@ -4,10 +4,10 @@
 @section('content')
     <a href="{{ route('comics.index')}}">Torna alla home</a>
 
-    <form  method="post">
+    <form action="{{ route ('comics.update', $comic->id) }}"  method="post">
     @csrf
 
-    @method('put')
+    @method('PUT')
     <label for="title"></label>
     <input type="text" name="title" id="title" value="{{ $comic->title}}">
 
@@ -30,6 +30,6 @@
     <label for="type"></label>
     <input type="text" name="type" id="type" value="{{ $comic->type}}">
 
-    {{-- <input type="submit" value="Salva"> --}}
+    <input type="submit" value="Salva">
     </form>
 @endsection
