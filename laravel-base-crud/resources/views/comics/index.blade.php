@@ -1,11 +1,10 @@
-@extends('layout.welcome')
+@extends('welcome')
 
 @section('page_title', 'comics')
 
 @section('content')
-    <a href="{{ route('comics.create') }}">Aggiungi ...</a>
-    
-    
+    <a href="{{ route('comics.create') }}">Aggiungi...</a>
+
 
     <table>
         <thead>
@@ -32,6 +31,8 @@
                     <td>{{ $comic->type}}</td>
                     <td>
                         <a href="{{ route('comics.show', $comic->id ) }}">Dettagli...</a>
+                        <a href="{{ route('comics.edit', $comic->id ) }}">Modifica</a>
+
                     </td>
                 </tr>
                 

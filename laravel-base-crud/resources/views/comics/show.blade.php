@@ -1,4 +1,4 @@
-@extends('layout.welcome')
+@extends('welcome')
 @section('page_title', 'Dettagli utente')
 
 @section('content')

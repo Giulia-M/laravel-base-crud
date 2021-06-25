@@ -1,4 +1,4 @@
-@extends('layout.welcome')
+@extends('welcome')
 @section('page_title', 'Creazione di un nuovo comic')
 @section('content')
 

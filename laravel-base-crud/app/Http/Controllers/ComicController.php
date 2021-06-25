@@ -39,4 +39,11 @@ class ComicController extends Controller
             'comic' => $comic
         ]);
     }
+
+    public function edit($id) {
+        $comic= Comic::find($id);
+        return view("comics.edit", [
+            "comic"=> $comic
+        ]);
+    }
 }
