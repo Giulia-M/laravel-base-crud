@@ -70,7 +70,18 @@ class ComicController extends Controller
         }
         //prendo i dati dal form 
         $formData= $request->all();
+        //update ha bisogno nel Model della protected $fillable
         $comic->update($formData);
         return redirect()->route("comics.show", $comic->id);
+    }
+
+    //remove the specified comic from storage
+    public function destroy($id) {
+        $comic= Comic::findOrFail($id);
+
+        //metodo delete cancella una riga
+        $comic->delete();
+
+        return redirect()->route("comics.index");
     }
 }
