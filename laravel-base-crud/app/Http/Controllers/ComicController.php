@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comic;
+use Exception;
 
 class ComicController extends Controller
 {
@@ -37,6 +38,10 @@ class ComicController extends Controller
 
     //display the specified resource 
     public function show(Comic $comic) {
+        if(is_null($comic)) {
+            abort(404);
+        }
+
         return view('comics.show', [
             'comic' => $comic
         ]);
@@ -44,14 +49,25 @@ class ComicController extends Controller
 
     // Show the form for editing the specified resource.
     public function edit($id) {
-        $comic= Comic::find($id);
-        return view("comics.edit", [
-            "comic"=> $comic
-        ]);
+        try{
+            $comic= Comic::findOrFail($id);
+
+            
+            return view("comics.edit", [
+                "comic"=> $comic
+            ]);
+        } catch (Exception $er) {
+            abort(401);
+        }
+        
     }
 
     //  Update the specified resource in storage.
+    // dependency injection-> Comic $comic
     public function update(Request $request, Comic $comic) {
+        if(is_null($comic)) {
+            abort(404);
+        }
         //prendo i dati dal form 
         $formData= $request->all();
         $comic->update($formData);

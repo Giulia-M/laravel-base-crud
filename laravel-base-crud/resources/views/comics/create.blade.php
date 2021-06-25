@@ -1,6 +1,7 @@
 @extends('welcome')
 @section('page_title', 'Creazione di un nuovo comic')
 @section('content')
+<a href="{{ route('comics.index')}}">Torna alla home</a>
 
 <form action="{{ route ('comics.store') }}" method="post">
 @csrf
