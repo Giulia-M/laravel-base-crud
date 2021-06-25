@@ -5,13 +5,7 @@
 
 <a href="{{ route('comics.index')}}">Torna alla home</a>
 <a href="{{ route ('comics.edit', $comic->id ) }}">Modifica</a>
-<form action="{{ route('comics.destroy', $comic->id ) }}" method="post">
-@csrf
-
-@method('DELETE')
-
-<input type="submit" value="Cancella">
-</form>
+@include('partials.components.deleteBtn', ["comic" =>$comic])
 
 <ul>
     <li>Title {{ $comic->title}}</li>
