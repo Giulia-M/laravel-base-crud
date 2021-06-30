@@ -29,6 +29,8 @@
                     <td>{{ $comic->series}}</td>
                     <td>{{ $comic->sale_date}}</td>
                     <td>{{ $comic->type}}</td>
+                    <td>{{ $comic->email}}</td>
+
                     <td>
                         <a href="{{ route('comics.show', $comic->id ) }}">Dettagli...</a>
                         <a href="{{ route('comics.edit', $comic->id ) }}">Modifica</a>
